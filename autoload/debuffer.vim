@@ -1,4 +1,4 @@
-function! debuffer#command(bang, command, args) range abort
+function! debuffer#command(bang, command, first_buffer, last_buffer, args) abort
     let buffers = {}
     let bang = a:bang ? '!' : ''
     let original_window_id = win_getid()
@@ -11,7 +11,7 @@ function! debuffer#command(bang, command, args) range abort
             let buffers[buffer_number] = win_findbuf(buffer_number)
         endfor
     else
-        for buffer_number in range(a:firstline, a:lastline)
+        for buffer_number in range(a:first_buffer, a:last_buffer)
             let buffers[buffer_number] = win_findbuf(buffer_number)
         endfor
     endif
@@ -51,14 +51,14 @@ function! debuffer#command(bang, command, args) range abort
     call win_gotoid(original_window_id)
 endfunction
 
-function! debuffer#delete(bang, ...) abort
-    call debuffer#command(a:bang, 'bdelete', a:000)
+function! debuffer#delete(bang, first_buffer, last_buffer, ...) abort
+    call debuffer#command(a:bang, 'bdelete', a:first_buffer, a:last_buffer, a:000)
 endfunction
 
-function! debuffer#wipeout(bang, ...) abort
-    call debuffer#command(a:bang, 'bwipeout', a:000)
+function! debuffer#wipeout(bang, first_buffer, last_buffer, ...) abort
+    call debuffer#command(a:bang, 'bwipeout', a:first_buffer, a:last_buffer, a:000)
 endfunction
 
-function! debuffer#unload(bang, ...) abort
-    call debuffer#command(a:bang, 'bunload', a:000)
+function! debuffer#unload(bang, first_buffer, last_buffer, ...) abort
+    call debuffer#command(a:bang, 'bunload', a:first_buffer, a:last_buffer, a:000)
 endfunction
