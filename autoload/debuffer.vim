@@ -45,7 +45,7 @@ function! debuffer#command(bang, command, args) range abort
             endfor
         endif
 
-        execute $'{command}{bang} {buffer_number}'
+        execute $'{a:command}{bang} {buffer_number}'
     endfor
 
     call win_gotoid(original_window_id)
