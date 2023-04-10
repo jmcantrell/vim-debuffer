@@ -1,0 +1,31 @@
+*debuffer.txt*  Jump to/from test file for the current buffer
+
+Author:   Jeremy Cantrell <jmcantrell@gmail.com>  *debuffer-author*
+License:  Same terms as Vim itself (see |license|)
+
+INTRODUCTION                                      *debuffer* *debuffer.vim*
+
+The builtin commands for removing buffers does so while also closing any
+windows containing said buffers. This plugin provides commands that perform
+equivalently, but leave the window layout intact.
+
+CONFIGURATION                                     *debuffer-configuration*
+
+g:debuffer_loaded                                 *g:debuffer_loaded*
+    If set in your |vimrc|, debuffer.vim is not loaded.
+
+COMMANDS                                          *debuffer-commands*
+
+                                                  *:BDelete*
+:BDelete    Delete buffer(s), leaving the window layout intact.
+            Accepts the same ranges and arguments as |:bdelete|.
+
+                                                  *:BWipeout*
+:BWipeout   Wipeout buffer(s), leaving the window layout intact.
+            Accepts the same ranges and arguments as |:bwipeout|.
+
+                                                  *:BUnload*
+:BUnload    Unload buffer(s), leaving the window layout intact.
+            Accepts the same ranges and arguments as |:bunload|.
+
+vim:tw=78:et:ft=help:norl:
