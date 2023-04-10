@@ -1,4 +1,4 @@
-*debuffer.txt*  Jump to/from test file for the current buffer
+*debuffer.txt*  Remove buffers while keeping windows intact
 
 Author:   Jeremy Cantrell <jmcantrell@gmail.com>  *debuffer-author*
 License:  Same terms as Vim itself (see |license|)
