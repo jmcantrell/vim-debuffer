@@ -27,7 +27,7 @@ function! debuffer#command(bang, command, first_buffer, last_buffer, args) abort
             for window_id in window_ids
                 call win_gotoid(window_id)
 
-                if num_other_buffers < 1
+                if num_other_buffers == 0
                     if empty_buffer_number == 0
                         enew!
                         let empty_buffer_number = bufnr('%')
