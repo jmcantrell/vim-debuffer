@@ -35,8 +35,8 @@ function! debuffer#command(bang, command, first_buffer, last_buffer, args) abort
                         execute $'buffer! {empty_buffer_number}'
                     endif
                 else
-                    let other_buffer_number = bufnr('#')
-                    if other_buffer_number > 0 && buflisted(other_buffer_number) && other_buffer_number != buffer_number
+                    let alt_buffer_number = bufnr('#')
+                    if alt_buffer_number > 0 && alt_buffer_number != buffer_number && buflisted(alt_buffer_number)
                         buffer! #
                     else
                         bprevious!
