@@ -39,7 +39,12 @@ function! debuffer#command(bang, command, first_buffer, last_buffer, args) abort
                     if alt_buffer_number > 0 && alt_buffer_number != buffer_number && buflisted(alt_buffer_number)
                         buffer! #
                     else
-                        bprevious!
+                        while v:true
+                            bprevious!
+                            if !has_key(target_buffers, bufnr('%'))
+                                break
+                            endif
+                        endwhile
                     endif
                 endif
             endfor
