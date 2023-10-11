@@ -32,7 +32,7 @@ function! debuffer#command(bang, command, first_buffer, last_buffer, args) abort
                         enew!
                         let empty_buffer_number = bufnr('%')
                     else
-                        execute $'buffer! {empty_buffer_number}'
+                        execute 'buffer! ' . empty_buffer_number
                     endif
                 else
                     let alt_buffer_number = bufnr('#')
@@ -47,7 +47,7 @@ function! debuffer#command(bang, command, first_buffer, last_buffer, args) abort
             endfor
         endif
 
-        execute $'{a:command}{bang} {buffer_number}'
+        execute a:command . bang . ' ' . buffer_number
     endfor
 
     call win_gotoid(original_window_id)
