@@ -8,7 +8,7 @@ Install using your favorite package manager, or use Vim's built-in package suppo
 
 ```sh
 mkdir -p ~/.vim/pack/default/start
-git clone https://git.sr.ht/~jmcantrell/vim-debuffer ~/.vim/pack/default/start/debuffer
+git clone $REPO_URL ~/.vim/pack/default/start/debuffer
 vim -u NONE -c "helptags debuffer/doc" -c q
 ```
 
